@@ -5,15 +5,15 @@ public class TesteDBBank {
 	public static void main(String[] args) {
 		Cliente cliente = new Cliente("Juca", "123123123", 19);
 		
-		Conta contaCorrente = new ContaCorrente(cliente, 200.0);
+		Conta contaDoCliente = new ContaCorrente(cliente, 200.0);
 		
-		ServicoAtendimento servicoAtendimentoCaixa = new ServicoAtendimentoCaixa();
-		servicoAtendimentoCaixa.consultarSaldo(contaCorrente);
-		servicoAtendimentoCaixa.depositar(contaCorrente, 50);
+		Atendimento servicoAtendimentoCaixa = new Caixa(contaDoCliente);
+		servicoAtendimentoCaixa.consultarSaldo();
+		servicoAtendimentoCaixa.depositar(50);
 		
-		ServicoAtendimento servicoAutoAtendimento = new ServicoAutoAtendimento();
-		servicoAutoAtendimento.consultarSaldo(contaCorrente);
-		servicoAutoAtendimento.depositar(contaCorrente, 50);
+		Atendimento servicoAutoAtendimento = new AutoAtendimento(contaDoCliente);
+		servicoAutoAtendimento.consultarSaldo();
+		servicoAutoAtendimento.depositar(50);
 		
 	}
 	
