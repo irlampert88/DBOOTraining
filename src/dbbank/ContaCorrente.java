@@ -8,7 +8,7 @@ public class ContaCorrente extends Conta {
 	}
 
 	private void validarAberturaDaConta() {
-		if (cliente.getIdade() < 18) {
+		if (clienteDaConta().menorDeIdade()) {
 			throw new IllegalArgumentException("Não é possível abrir uma Conta Corrente para menores de Idade.");
 		}
 	}
@@ -18,8 +18,6 @@ public class ContaCorrente extends Conta {
 		double valorCobrancaTaxa = valorDoSaque * 0.05;
 		
 		double valorTotalDoSaque = valorDoSaque + valorCobrancaTaxa;
-		
-		validarValorDoSaque(valorTotalDoSaque);
 		
 		super.sacar(valorTotalDoSaque);
 	}

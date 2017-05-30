@@ -24,4 +24,8 @@ public class Cliente {
 		return idade;
 	}
 	
+	public boolean menorDeIdade() {
+		return idade < 18;
+	}
+	
 }
